@@ -32,5 +32,10 @@ namespace MvcModels.Controllers
         {
             return View("Index", model);
         }
+        // Applying the Bind Attribute
+        public ActionResult DisplaySummary([Bind(Prefix = "HomeAddress")]AddressSummary summary)
+        {
+            return View(summary);
+        }
     }
 }

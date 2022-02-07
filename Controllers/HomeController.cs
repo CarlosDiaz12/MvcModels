@@ -53,8 +53,23 @@ namespace MvcModels.Controllers
         }
 
         /*
-         OPTIONAL:
+         OPTIONAL: 1
 
+        try {
+        UpdateModel(addresses, formData);
+        } catch (InvalidOperationException ex) {
+        // provide feedback to user
+        }
+
+        OPTIONAL 2
+        IList<AddressSummary> addresses = new List<AddressSummary>();
+        if (TryUpdateModel(addresses, formData)) {
+        // proceed as normal
+        } else {
+        // provide feedback to user
+        }
+
+        OPTIONAL: 3
         public ActionResult Address(FormCollection formData) {
             IList<AddressSummary> addresses = new List<AddressSummary>();
             UpdateModel(addresses, formData);

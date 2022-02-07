@@ -33,9 +33,15 @@ namespace MvcModels.Controllers
             return View("Index", model);
         }
         // Applying the Bind Attribute
-        public ActionResult DisplaySummary([Bind(Prefix = "HomeAddress")]AddressSummary summary)
+        public ActionResult DisplaySummary([Bind(Prefix = "HomeAddress", Exclude = "Country")]AddressSummary summary)
         {
             return View(summary);
+        }
+
+        public ActionResult Names(string[] names)
+        {
+            names = names ?? new string[0];
+            return View(names);
         }
     }
 }

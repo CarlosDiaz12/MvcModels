@@ -47,8 +47,7 @@ namespace MvcModels.Controllers
         {
             // Manually Invoking the Model Binding Process
             IList<AddressSummary> addresses = new List<AddressSummary>();
-            // Restricting the Binder to the Form Data
-            UpdateModel(addresses, new FormValueProvider(ControllerContext));
+            UpdateModel(addresses);
             return View(addresses);
         }
 

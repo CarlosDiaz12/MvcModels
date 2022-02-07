@@ -1,3 +1,4 @@
+using MvcModels.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace MvcModels
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            // Registering a Value Provider Factory
+            ValueProviderFactories.Factories.Insert(0, new CustomValueProviderFactory());
         }
     }
 }

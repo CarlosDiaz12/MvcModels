@@ -43,10 +43,23 @@ namespace MvcModels.Controllers
             names = names ?? new List<string>();
             return View(names);
         }
-        public ActionResult Address(IList<AddressSummary> addresses)
+        public ActionResult Address()
         {
-            addresses = addresses ?? new List<AddressSummary>();
+            // Manually Invoking the Model Binding Process
+            IList<AddressSummary> addresses = new List<AddressSummary>();
+            // Restricting the Binder to the Form Data
+            UpdateModel(addresses, new FormValueProvider(ControllerContext));
             return View(addresses);
         }
+
+        /*
+         OPTIONAL:
+
+        public ActionResult Address(FormCollection formData) {
+            IList<AddressSummary> addresses = new List<AddressSummary>();
+            UpdateModel(addresses, formData);
+            return View(addresses);
+        }
+         */
     }
 }

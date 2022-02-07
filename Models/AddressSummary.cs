@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace MvcModels.Models
 {
     // Applying the Bind Attribute
-    [Bind(Include = "City")]
+    // [Bind(Include = "City")]
     public class AddressSummary
     {
         public string City { get; set; }
